@@ -59,8 +59,22 @@ type of file with line numbering on GitHub.
 
 <img src="promotional/file_focus_promotional.png" align="center">
 
+## Installation
 
-### FAQ
+### Install extension through Chrome Web Store
+
+Soon...
+
+### Install the extension manually on your local machine
+
+1. Download a [release](https://github.com/NickyMateev/Line-Clipper/releases) of your choice and unzip it **OR** clone this repository.
+2. Navigate to *chrome://extensions* in your browser. You can also access this page by clicking on the Chrome menu on the top right side of the Omnibox, hovering over **More Tools** and selecting **Extensions**.
+3. Check the box next to **Developer Mode**.
+4. Click **Load Unpacked Extension** and select the directory where you downloaded and unpacked the plugin.
+
+**Congratulations!** You can now use and play around with the plugin and its source.
+
+## FAQ
 
 Q: *Does this work only when traversing a GitHub project's file tree and looking at different files?*
 
@@ -73,3 +87,9 @@ Q: *Does it work for all GitHub installations or just the public *https://github
 
 A: The extension works on all kinds of GitHub installations public/private as long as the domain contains
 the word *github* in it.
+
+## Notice
+
+**LineClipper** (also known as **Line Clipper for GitHub** in the Chrome Web Store) is not endorsed by GitHub.
+
+GitHub and Chrome are trademarks of their respective owners.

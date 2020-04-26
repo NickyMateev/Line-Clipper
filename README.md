@@ -63,7 +63,9 @@ type of file with line numbering on GitHub.
 
 ### Install extension through Chrome Web Store
 
-Soon...
+⭐️ You can download the extension from the Chrome Web Store [HERE](https://chrome.google.com/webstore/detail/line-clipper-for-github/kecjnmjgliaihgbllmidpbbgnhgfobnn). ⭐️
+
+Your feedback is **valuable** so it would be appreciated if you leave a rating or feedback of your experience!
 
 ### Install the extension manually on your local machine
 
@@ -74,7 +76,19 @@ Soon...
 
 **Congratulations!** You can now use and play around with the plugin and its source.
 
+## Contribution
+
+📝 Feel free to propose changes or open issues when you have ideas for improvement.
+
 ## FAQ
+
+Q: *Why does the extension state upon installation that it can read and change all my data on the websites I visit?*
+
+A: **LineClipper** will only try to work on websites which contain *github* as part of their domain. You check out
+this in source [here](https://github.com/NickyMateev/Line-Clipper/blob/3f13ab4063e2f72e9860e974d3ec58ee1dda0306/manifest.json#L8).
+The reason for deciding to work on all domains containing *github* is that often developers work with multiple
+public/private installations of GitHub. Out of convenience for the developer it was decided to simply match these domains
+automatically instead of having to make the developer whitelist every single GitHub domain he works in.
 
 Q: *Does this work only when traversing a GitHub project's file tree and looking at different files?*
 

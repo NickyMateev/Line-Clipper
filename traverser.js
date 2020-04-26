@@ -39,7 +39,12 @@ function fileTraverser(file) {
 }
 
 function attachDOMElementListener(element, func, observerOptions) {
-  new MutationObserver(func).observe(element, observerOptions)
+  const listenerAttachedAttribute = "listener-attached"
+  listenerAttached = element.getAttribute(listenerAttachedAttribute)
+  if (listenerAttached == null) {
+    new MutationObserver(func).observe(element, observerOptions)
+    element.setAttribute(listenerAttachedAttribute , "true")
+  }
 }
 
 async function traverseFile(file, filePath) {
@@ -67,8 +72,8 @@ async function traverseFile(file, filePath) {
   }
 
   expandableLines = file.getElementsByClassName("js-expandable-line")
-  for (var i = 0; i < expandableLines.length; i++) {
-    attachDOMElementListener(expandableLines[i].parentNode, fileTraverser(file), {childList: true})
+  if (expandableLines.length > 0) {
+    attachDOMElementListener(expandableLines[0].parentNode, fileTraverser(file), {childList: true})
   }
 }
 
@@ -102,7 +107,7 @@ function traverseMultiFilePage() {
     traverseFile(files[i], retrieveFilePath(files[i]))
   }
 
-  if (files.length > 0) { // Sometimes there are files hidden behind "Load more" buttons - we need to listen for changes on container DOM parent too detect when new files are "revealed"
+  if (files.length > 0) { // Sometimes there are files hidden behind "Load more" buttons or collapsed code snippets in the PR conversation tab - we need to listen for changes on container DOM parent too detect when new files are "revealed"
     attachDOMElementListener(files[0].parentNode.parentNode, traverseMultiFilePage, {childList: true, subtree: true})
   }
 }

@@ -1,6 +1,6 @@
  {
     "name": "Line Clipper for GitHub",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Effortlessly copy file paths with their respective line numbers when working on GitHub.",
     "content_scripts": [{
         "js": ["traverser.js"],

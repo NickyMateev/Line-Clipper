@@ -1,4 +1,85 @@
-function constructClipBtn(displayTag) {
+pageTitle = document.getElementsByTagName("title")[0]
+processPageDOM()
+attachElementObserver(pageTitle, processPageDOM, {childList: true}) // Use case: Ensures consistent behavior when switching between PR tabs
+
+function processPageDOM() {
+  var path = document.querySelectorAll('[name=analytics-location]')[0].getAttribute("content")
+  var hasMultipleFiles = path.includes("pull_requests") || path.includes("commit")
+
+  var traverseFileFunc = traverseSingleFilePage
+  if (hasMultipleFiles) {
+    traverseFileFunc = traverseMultiFilePage
+  }
+  traverseFileFunc()
+}
+
+function traverseSingleFilePage() {
+  finalPathTag = document.getElementsByClassName("final-path")
+  if (finalPathTag.length == 0) {
+    return
+  }
+
+  fileName = finalPathTag[0].textContent
+
+  var filePath = ""
+  pathTokens = document.getElementsByClassName("js-path-segment")
+  for (var i = 1; i < pathTokens.length; i++) {
+    filePath += pathTokens[i].textContent + "/"
+  }
+
+  filePath += fileName
+  processFileDOM(document, filePath)
+}
+
+function traverseMultiFilePage() {
+  files = document.getElementsByClassName("file")
+
+  for (var i = 0; i < files.length; i++) {
+    filePath = files[i].getElementsByTagName("a")[0].title
+
+    fileDOMProcessor = function(fileDOM, path) {
+      return function() {
+        processFileDOM(fileDOM, path)
+      }
+    }(files[i], filePath)
+
+    fileDOMProcessor()
+    attachElementObserver(files[i], fileDOMProcessor, {attributes: true}) // Use case: PR Conversation tab has code snippets collapsed/not loaded until opened up
+  }
+
+  filesContainer = document.getElementById("files")
+  if (filesContainer != null) {
+    attachElementObserver(filesContainer, traverseMultiFilePage, {childList: true, subtree: true}) // Use case: PR Files Changed tab doesn't load all files initially to the DOM
+  }
+}
+
+async function processFileDOM(fileDOM, filePath) {
+  lines = fileDOM.querySelectorAll('[data-line-number]')
+
+  for (line of lines) {
+    lineNumber = line.getAttribute("data-line-number")
+    if (lineNumber == "...") {
+      continue
+    }
+
+    path = filePath + ":" + lineNumber
+
+    textTag = document.createElement("text")
+    textTag.innerHTML = lineNumber
+
+    colorValue = window.getComputedStyle(line).getPropertyValue("color")
+    textTag.style = "color: " + colorValue
+
+    lineClipBtn = buildClipboardBtn(textTag)
+    lineClipBtn.setAttribute("value", path)
+
+    line.appendChild(lineClipBtn)
+
+    line.removeAttribute("data-line-number")
+  }
+}
+
+function buildClipboardBtn(displayTag) {
   var clipBtn = document.createElement("clipboard-copy")
   clipBtn .classList = "js-clipboard-copy zeroclipboard-link text-gray link-hover-blue"
   clipBtn .setAttribute("aria-label", "Copy")
@@ -32,95 +113,12 @@ function constructClipBtn(displayTag) {
   return clipBtn
 }
 
-function fileTraverser(file) {
-    return function() {
-      traverseFile(file, retrieveFilePath(file))
-    }
-}
-
-function attachDOMElementListener(element, func, observerOptions) {
+function attachElementObserver(element, func, observerOptions) {
   const listenerAttachedAttribute = "listener-attached"
   listenerAttached = element.getAttribute(listenerAttachedAttribute)
+
   if (listenerAttached == null) {
     new MutationObserver(func).observe(element, observerOptions)
     element.setAttribute(listenerAttachedAttribute , "true")
   }
 }
-
-async function traverseFile(file, filePath) {
-  lines = file.querySelectorAll('[data-line-number]')
-
-  for (line of lines) {
-    lineNumber = line.getAttribute("data-line-number")
-    if (lineNumber == "...") {
-      continue
-    }
-
-    path = filePath + ":" + lineNumber
-
-    textTag = document.createElement("text")
-    textTag.innerHTML = lineNumber
-
-    colorValue = window.getComputedStyle(line).getPropertyValue("color")
-    textTag.style = "color: " + colorValue
-
-    lineClipBtn = constructClipBtn(textTag)
-    lineClipBtn.setAttribute("value", path)
-
-    line.appendChild(lineClipBtn)
-
-    line.removeAttribute("data-line-number")
-  }
-}
-
-function retrieveFilePath(file) {
-  return file.getElementsByTagName("a")[0].title
-}
-
-function traverseSingleFilePage() {
-  finalPathTag = document.getElementsByClassName("final-path")
-  if (finalPathTag.length == 0) {
-    return
-  }
-
-  fileName = finalPathTag[0].textContent
-
-  var filePath = ""
-  pathTokens = document.getElementsByClassName("js-path-segment")
-  for (var i = 1; i < pathTokens.length; i++) {
-    filePath += pathTokens[i].textContent + "/"
-  }
-
-  filePath += fileName
-  traverseFile(document, filePath)
-}
-
-function traverseMultiFilePage() {
-  files = document.getElementsByClassName("file")
-
-  for (var i = 0; i < files.length; i++) {
-    attachDOMElementListener(files[i], fileTraverser(files[i]), {attributes: true})
-    traverseFile(files[i], retrieveFilePath(files[i]))
-  }
-
-  filesContainer = document.getElementById("files")
-  if (filesContainer != null) { // Sometimes there are files hidden behind "Load diff" buttons or collapsed code snippets in the PR conversation tab - we need to listen for changes on container DOM parent too detect when new files are "revealed"
-    attachDOMElementListener(filesContainer, traverseMultiFilePage, {childList: true, subtree: true})
-  }
-}
-
-function processFile() {
-  var path = document.querySelectorAll('[name=analytics-location]')[0].getAttribute("content")
-  var hasMultipleFiles = path.includes("pull_requests") || path.includes("commit")
-
-  var traverseFileFunc = traverseSingleFilePage
-  if (hasMultipleFiles) {
-    traverseFileFunc = traverseMultiFilePage
-  }
-  traverseFileFunc()
-}
-
-
-pageTitle = document.getElementsByTagName("title")[0]
-attachDOMElementListener(pageTitle, processFile, {childList: true})
-processFile()

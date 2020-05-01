@@ -71,11 +71,6 @@ async function traverseFile(file, filePath) {
 
     line.removeAttribute("data-line-number")
   }
-
-  expandableLines = file.getElementsByClassName("js-expandable-line")
-  if (expandableLines.length > 0) {
-    attachDOMElementListener(expandableLines[0].parentNode, fileTraverser(file), {childList: true})
-  }
 }
 
 function retrieveFilePath(file) {
@@ -108,8 +103,9 @@ function traverseMultiFilePage() {
     traverseFile(files[i], retrieveFilePath(files[i]))
   }
 
-  if (files.length > 0) { // Sometimes there are files hidden behind "Load more" buttons or collapsed code snippets in the PR conversation tab - we need to listen for changes on container DOM parent too detect when new files are "revealed"
-    attachDOMElementListener(files[0].parentNode.parentNode, traverseMultiFilePage, {childList: true, subtree: true})
+  filesContainer = document.getElementById("files")
+  if (filesContainer != null) { // Sometimes there are files hidden behind "Load diff" buttons or collapsed code snippets in the PR conversation tab - we need to listen for changes on container DOM parent too detect when new files are "revealed"
+    attachDOMElementListener(filesContainer, traverseMultiFilePage, {childList: true, subtree: true})
   }
 }
 

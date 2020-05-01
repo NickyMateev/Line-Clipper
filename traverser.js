@@ -65,7 +65,7 @@ async function processFileDOM(fileDOM, filePath) {
     path = filePath + ":" + lineNumber
 
     textTag = document.createElement("text")
-    textTag.innerHTML = lineNumber
+    textTag.textContent = lineNumber
 
     colorValue = window.getComputedStyle(line).getPropertyValue("color")
     textTag.style = "color: " + colorValue

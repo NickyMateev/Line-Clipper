@@ -60,8 +60,9 @@ async function traverseFile(file, filePath) {
 
     textTag = document.createElement("text")
     textTag.innerHTML = lineNumber
-    textTag.style = "color: rgba(27, 31, 35, 0.3)"
 
+    colorValue = window.getComputedStyle(line).getPropertyValue("color")
+    textTag.style = "color: " + colorValue
 
     lineClipBtn = constructClipBtn(textTag)
     lineClipBtn.setAttribute("value", path)

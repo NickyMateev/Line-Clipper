@@ -1,4 +1,9 @@
-# <img src="images/logo128.png" align="center"> Line Clipper <a href="https://addons.mozilla.org/en-US/firefox/addon/line-clipper-for-github"><img src="promotional/firefox_badge_172x60.png" align="right"></a><a href="https://chrome.google.com/webstore/detail/line-clipper-for-github/kecjnmjgliaihgbllmidpbbgnhgfobnn"><img src="promotional/chrome_badge_206x58.png" align="right"></a>
+<h1>
+  <img src="images/logo128.png" align="center"> Line Clipper
+  <a href="https://chrome.google.com/webstore/detail/line-clipper-for-github/kecjnmjgliaihgbllmidpbbgnhgfobnn"><img src="promotional/microsoft_edge_60x60.png" align="right"></a>
+  <a href="https://addons.mozilla.org/en-US/firefox/addon/line-clipper-for-github"><img src="promotional/firefox_badge_172x60.png" align="right"></a>
+  <a href="https://chrome.google.com/webstore/detail/line-clipper-for-github/kecjnmjgliaihgbllmidpbbgnhgfobnn"><img src="promotional/chrome_badge_206x58.png" align="right"></a>
+</h1>
 
 **LineClipper** is a Chrome Extension which aims to optimize a software developer's
 flow between the browser and the IDE when executing file retrieval.
@@ -63,11 +68,15 @@ type of file with line numbering on GitHub.
 
 ### Install extension from official extension stores
 
-⭐️ You can download the extension from the Chrome Web Store [HERE](https://chrome.google.com/webstore/detail/line-clipper-for-github/kecjnmjgliaihgbllmidpbbgnhgfobnn). ⭐️
+⭐️ Chrome users can download the extension from the Chrome Web Store [HERE](https://chrome.google.com/webstore/detail/line-clipper-for-github/kecjnmjgliaihgbllmidpbbgnhgfobnn). ⭐️
 
-🦊 You can download the extension from the Mozilla's official Add-ons page [HERE](https://addons.mozilla.org/en-US/firefox/addon/line-clipper-for-github). 🦊
+🦊 Firefox users can download the extension from the Mozilla's official Add-ons page [HERE](https://addons.mozilla.org/en-US/firefox/addon/line-clipper-for-github). 🦊
 
-Your feedback is **valuable** so it would be appreciated if you leave a rating or feedback of your experience!
+🌐 Microsoft Edge users can download the extension from the Chrome Web Store [HERE](https://chrome.google.com/webstore/detail/line-clipper-for-github/kecjnmjgliaihgbllmidpbbgnhgfobnn). 🌐
+
+> Microsoft Edge has the unique capability of allowing installation of extensions from the Chrome Web Store - this is how you can make use of this extension. If you have questions or concerns regarding installation of this extension from the Chrome Web Store on your Microsoft Edge browser, please check [this page](https://support.microsoft.com/en-us/help/4027935/microsoft-edge-add-or-remove-browser-extensions).
+
+Your feedback is **valuable** so it would be appreciated if you leave a rating or feedback from your experience!
 
 ### Install the extension manually on your local machine
 
@@ -75,18 +84,24 @@ Download a [release](https://github.com/NickyMateev/Line-Clipper/releases) of yo
 
 #### Google Chrome
 
-1. Navigate to *chrome://extensions* in your browser. You can also access this page by clicking on the Chrome menu on the top right side of the Omnibox, hovering over **More Tools** and selecting **Extensions**.
+1. Navigate to *chrome://extensions* in your browser. You can also access this page by clicking on the Chrome menu on the top right side of your browser, hovering over **More Tools** and then selecting **Extensions**.
 2. Check the box next to **Developer Mode**.
 3. Click **Load Unpacked Extension** and select the directory where you downloaded and unpacked the extension.
 
 #### Mozilla Firefox
 
-1. Navigate to *about:addons* in your browser. You can also access this page by clicking on the Firefox menu on the top right side and clicking Add-ons.
-2. Click on the Gear icon on the top right -> *Debug Add-ons*
-3. Click on *Load Temporary Add-on*
+1. Navigate to *about:addons* in your browser. You can also access this page by clicking on the Firefox menu on the top right side of your browser and then selecting **Add-ons**.
+2. Click on the Gear icon on the top right -> **Debug Add-ons**.
+3. Click on **Load Temporary Add-on**.
 4. Select `traverser.js` from the directory where you downloaded and unpacked the extension.
 
 > Firefox requires loading temporary extensions every time you restart the browser. More information regarding temporary extensions you can find [HERE](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox).
+
+#### Microsoft Edge
+
+1. Navigate to *edge://extensions* in your browser. You can also access this page by clicking on the Microsoft Edge menu on the top right side of your browser and then selecting **Extensions**.
+2. Enable **Developer Mode** on the bottom left side of the page.
+3. Click **Load Unpacked Extension** and select the directory where you downloaded and unpacked the extension.
 
 **Congratulations!** You can now use and play around with the extension and its source.
 
@@ -120,4 +135,4 @@ the word *github* in it.
 
 **LineClipper** (also known as **Line Clipper for GitHub** in the Chrome Web Store/Mozilla's Add-ons site) is not endorsed by GitHub.
 
-GitHub, Chrome and Firefox are trademarks of their respective owners.
+**GitHub**, **Google Chrome**, **Mozilla Firefox** and **Microsoft Edge** are trademarks of their respective owners.

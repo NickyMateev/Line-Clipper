@@ -1,4 +1,4 @@
-# <img src="images/logo128.png" align="center"> Line Clipper
+# <img src="images/logo128.png" align="center"> Line Clipper <a href="https://addons.mozilla.org/en-US/firefox/addon/line-clipper-for-github"><img src="promotional/firefox_badge_172x60.png" align="right"></a><a href="https://chrome.google.com/webstore/detail/line-clipper-for-github/kecjnmjgliaihgbllmidpbbgnhgfobnn"><img src="promotional/chrome_badge_206x58.png" align="right"></a>
 
 **LineClipper** is a Chrome Extension which aims to optimize a software developer's
 flow between the browser and the IDE when executing file retrieval.
@@ -61,20 +61,34 @@ type of file with line numbering on GitHub.
 
 ## Installation
 
-### Install extension through Chrome Web Store
+### Install extension from official extension stores
 
 ⭐️ You can download the extension from the Chrome Web Store [HERE](https://chrome.google.com/webstore/detail/line-clipper-for-github/kecjnmjgliaihgbllmidpbbgnhgfobnn). ⭐️
+
+🦊 You can download the extension from the Mozilla's official Add-ons page [HERE](https://addons.mozilla.org/en-US/firefox/addon/line-clipper-for-github). 🦊
 
 Your feedback is **valuable** so it would be appreciated if you leave a rating or feedback of your experience!
 
 ### Install the extension manually on your local machine
 
-1. Download a [release](https://github.com/NickyMateev/Line-Clipper/releases) of your choice and unzip it **OR** clone this repository.
-2. Navigate to *chrome://extensions* in your browser. You can also access this page by clicking on the Chrome menu on the top right side of the Omnibox, hovering over **More Tools** and selecting **Extensions**.
-3. Check the box next to **Developer Mode**.
-4. Click **Load Unpacked Extension** and select the directory where you downloaded and unpacked the plugin.
+Download a [release](https://github.com/NickyMateev/Line-Clipper/releases) of your choice and unzip it **OR** clone this repository.
 
-**Congratulations!** You can now use and play around with the plugin and its source.
+#### Google Chrome
+
+1. Navigate to *chrome://extensions* in your browser. You can also access this page by clicking on the Chrome menu on the top right side of the Omnibox, hovering over **More Tools** and selecting **Extensions**.
+2. Check the box next to **Developer Mode**.
+3. Click **Load Unpacked Extension** and select the directory where you downloaded and unpacked the extension.
+
+#### Mozilla Firefox
+
+1. Navigate to *about:addons* in your browser. You can also access this page by clicking on the Firefox menu on the top right side and clicking Add-ons.
+2. Click on the Gear icon on the top right -> *Debug Add-ons*
+3. Click on *Load Temporary Add-on*
+4. Select `traverser.js` from the directory where you downloaded and unpacked the extension.
+
+> Firefox requires loading temporary extensions every time you restart the browser. More information regarding temporary extensions you can find [HERE](https://extensionworkshop.com/documentation/develop/temporary-installation-in-firefox).
+
+**Congratulations!** You can now use and play around with the extension and its source.
 
 ## Contribution
 
@@ -104,6 +118,6 @@ the word *github* in it.
 
 ## Notice
 
-**LineClipper** (also known as **Line Clipper for GitHub** in the Chrome Web Store) is not endorsed by GitHub.
+**LineClipper** (also known as **Line Clipper for GitHub** in the Chrome Web Store/Mozilla's Add-ons site) is not endorsed by GitHub.
 
-GitHub and Chrome are trademarks of their respective owners.
+GitHub, Chrome and Firefox are trademarks of their respective owners.

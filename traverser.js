@@ -35,7 +35,14 @@ function traverseMultiFilePage() {
   files = document.getElementsByClassName("file")
 
   for (var i = 0; i < files.length; i++) {
-    filePath = files[i].getElementsByTagName("a")[0].title
+    var filePath = ""
+    fileLinks = files[i].getElementsByTagName("a")
+    for (var j = 0; j < fileLinks.length; j++) {
+      if (fileLinks[j].href.includes("#diff-")) {
+        filePath = fileLinks[j].title
+        break
+      }
+    }
 
     fileDOMProcessor = function(fileDOM, path) {
       return function() {

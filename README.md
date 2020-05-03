@@ -5,6 +5,24 @@
   <a href="https://chrome.google.com/webstore/detail/line-clipper-for-github/kecjnmjgliaihgbllmidpbbgnhgfobnn"><img src="promotional/chrome_badge_206x58.png" align="right"></a>
 </h1>
 
+## Table of Contents
+
+  - [Overview](#overview)
+  - [Motivation](#motivation)
+  - [Solution](#solution)
+      - [Features](#features)
+  - [Installation](#installation)
+      - [Install from official stores](#install-extension-from-official-extension-stores)
+      - [Install from source](#install-the-extension-manually-on-your-local-machine)
+        - [Google Chrome](#google-chrome)
+        - [Mozilla Firefox](#mozilla-firefox)
+        - [Microsoft Edge](#microsoft-edge)
+  - [Contribution](#contribution)
+  - [FAQ](#faq)
+  - [Notice](#notice)
+
+## Overview
+
 **LineClipper** is a Chrome Extension which aims to optimize a software developer's
 flow between the browser and the IDE when executing file retrieval.
 This particular extension works on the GitHub source control platform.
@@ -78,7 +96,7 @@ type of file with line numbering on GitHub.
 
 Your feedback is **valuable** so it would be appreciated if you leave a rating or feedback from your experience!
 
-### Install the extension manually on your local machine
+### Install the extension manually on your local machine from source
 
 Download a [release](https://github.com/NickyMateev/Line-Clipper/releases) of your choice and unzip it **OR** clone this repository.
 

@@ -10,7 +10,8 @@
   - [Overview](#overview)
   - [Motivation](#motivation)
   - [Solution](#solution)
-      - [Features](#features)
+  - [Preview](#preview)
+  - [Features](#features)
   - [Installation](#installation)
       - [Install from official stores](#install-extension-from-official-extension-stores)
       - [Install from source](#install-the-extension-manually-on-your-local-machine)
@@ -23,7 +24,7 @@
 
 ## Overview
 
-**LineClipper** is a Chrome Extension which aims to optimize a software developer's
+**LineClipper** is a browser extension which aims to optimize a software developer's
 flow between the browser and the IDE when executing file retrieval.
 This particular extension works on the GitHub source control platform.
 
@@ -61,24 +62,30 @@ mental effort. You can now focus on what you want to do and not worry about pett
 3. Paste the file path that was copied (it includes the appended line number)
 4. Execute search
 
+## Preview:
+
+**LineClipper** was showcased on [GitHub Satellite 2020](https://githubsatellite.com/lightning-talks/#protips)! Check out the short preview video here:
+
+[![github-satellite-line-clipper](https://img.youtube.com/vi/WaE0_3upa2U/0.jpg)](https://www.youtube.com/watch?v=WaE0_3upa2U)
+
 ## Features:
 
 The extension focuses on doing one thing and do it well - copy file paths with their respective line numbers to your clipboard when clicking on specific line numbers while viewing any
 type of file with line numbering on GitHub.
 
-#### Simplistic - just click on the desired line number:
+### Simplistic - just click on the desired line number:
 
 <img src="promotional/line_focus_promotional.png" align="center">
 
-#### While doing code review:
+### While doing code review:
 
 <img src="promotional/review_focus_promotional.png" align="center">
 
-#### During conversation:
+### During conversation:
 
 <img src="promotional/conversation_focus_promotional.png" align="center">
 
-#### When going through repository files:
+### When going through repository files:
 
 <img src="promotional/file_focus_promotional.png" align="center">
 
